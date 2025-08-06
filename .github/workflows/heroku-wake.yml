@@ -1,0 +1,13 @@
+name: Keep Heroku Awake
+
+on:
+  schedule:
+    - cron: '*/20 * * * *' # 每5分钟执行一次
+  workflow_dispatch:
+
+jobs:
+  wake-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl Heroku App
+        run: curl -L https://autotrader-app-969b6cc28558.herokuapp.com
